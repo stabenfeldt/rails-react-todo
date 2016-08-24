@@ -20,15 +20,21 @@ require 'rails_helper'
 
 RSpec.describe TodosController, type: :controller do
 
+  before do
+    user = Fabricate(:user)
+    # sign_in(user)
+  end
+
   # This should return the minimal set of attributes required to create a valid
   # Todo. As you add validations to Todo, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    @user = Fabricate(:user)
+    {"text"=>"Remember the milk", "user_id"=>@user.id}
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {"text"=>"Remember the milk"}
   }
 
   # This should return the minimal set of values that should be in the session
@@ -36,6 +42,8 @@ RSpec.describe TodosController, type: :controller do
   # TodosController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
+  # TODO: Simulate that the user has logged in.
+  # Then fetch only TODOs belonging to him.
   describe "GET #index" do
     it "assigns all todos as @todos" do
       todo = Todo.create! valid_attributes
@@ -134,8 +142,8 @@ RSpec.describe TodosController, type: :controller do
       end
 
       it "re-renders the 'edit' template" do
-        todo = Todo.create! valid_attributes
-        put :update, params: {id: todo.to_param, todo: invalid_attributes}, session: valid_session
+        #todo = Todo.create! valid_attributes
+        put :update, params: {id: todo.id, todo: invalid_attributes}, session: valid_session
         expect(response).to render_template("edit")
       end
     end
