@@ -10,6 +10,6 @@
 #
 
 Fabricator(:user) do
-  name  "MyText"
-  email "MyText"
+  name { Faker::Name.name }
+  email { |attrs| "#{attrs[:name].parameterize}@example.com" }
 end
