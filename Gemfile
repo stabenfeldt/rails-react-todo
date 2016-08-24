@@ -37,12 +37,13 @@ group :development, :test do
   gem 'railroady'
   gem 'rubocop'
   gem 'rails-controller-testing'
+  gem 'fabrication'
+  gem 'faker'
 end
 
 gem 'slim-rails'
 gem 'slim'
 
-gem 'fabrication'
 gem 'brakeman', :require => false
 gem 'react-rails'
 
