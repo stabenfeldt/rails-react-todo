@@ -36,6 +36,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'railroady'
   gem 'rubocop'
+  gem 'rails-controller-testing'
 end
 
 gem 'slim-rails'
