@@ -7,6 +7,9 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    = "Logged in user is: #{@user.name}"
+    - if user_signed_in?
+      = "Logged in user is: #{current_user.email}"
+    p.notice = notice
+    p.alert = alert
     = yield
 
