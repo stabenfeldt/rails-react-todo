@@ -21,8 +21,8 @@ require 'rails_helper'
 RSpec.describe TodosController, type: :controller do
 
   before do
-    user = Fabricate(:user)
-    # sign_in(user)
+    @user = Fabricate(:user)
+    login_user(user)
   end
 
   # This should return the minimal set of attributes required to create a valid
