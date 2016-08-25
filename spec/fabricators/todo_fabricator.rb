@@ -10,6 +10,6 @@
 #
 
 Fabricator(:todo) do
-  text "MyText"
-  user nil
+  text 'Remember the milk'
+  user { Fabricate(:user) }
 end

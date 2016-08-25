@@ -32,6 +32,7 @@ module TODO
       authentication:       'plain',
       enable_starttls_auto: true
     }
+    config.action_mailer.default_url_options = { host: ENV['DOMAIN'], port: 80 }
 
     config.generators do |g|
       g.fixture_replacement :fabrication
