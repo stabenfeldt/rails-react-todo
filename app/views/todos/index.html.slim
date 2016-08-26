@@ -1,23 +1,20 @@
-h1 Listing todos
+.container
+  h2 Things to do
+  ul.list-group
+    tbody
+      - @todos.each do |todo|
+        li.list-group-item
+          strong= todo.text
 
-table
-  thead
-    tr
-      th Text
-      th User
-      th
-      th
-      th
+          .pull-right
 
-  tbody
-    - @todos.each do |todo|
-      tr
-        td = todo.text
-        td = todo.user.email
-        td = link_to 'Show', todo
-        td = link_to 'Edit', edit_todo_path(todo)
-        td = link_to 'Destroy', todo, data: { confirm: 'Are you sure?' }, method: :delete
+            = link_to edit_todo_path(todo), :class => 'btn btn-xs', :title => 'hei' do
+              span.glyphicon.glyphicon-pencil
+
+            = link_to todo, data: { confirm: 'Are you sure?' }, method: :delete do
+              span.glyphicon.glyphicon-trash
+
 
 br
 
-= link_to 'New Todo', new_todo_path
+= link_to 'New Todo', new_todo_path, class: 'btn btn-primary'
