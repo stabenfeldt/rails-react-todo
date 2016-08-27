@@ -16,3 +16,6 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
+
+import "babel-polyfill";
+

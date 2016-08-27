@@ -44,6 +44,13 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'fabrication'
   gem 'faker'
+  # Javascript test tools
+  # Your choice of test library.
+  # Also available, teaspoon-mocha / teaspoon-qunit
+  gem "teaspoon-jasmine"
+
+  # Teaspoon's front-end is written in CoffeeScript but it's not a dependency
+  gem "coffee-script"
 end
 
 group :test do
@@ -55,7 +62,9 @@ gem 'slim-rails'
 gem 'slim'
 
 gem 'brakeman', :require => false
-gem 'react-rails'
+gem 'browserify-rails'
+
+
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
