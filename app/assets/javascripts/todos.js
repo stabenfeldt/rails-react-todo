@@ -1,3 +1,3 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+import Hello from "hello_world";
+let hello = new Hello();
+console.log( "GREET: " + hello.greet() );
