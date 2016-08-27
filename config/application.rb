@@ -16,6 +16,8 @@ module TODO
 
 
     unless Rails.env.production?
+        config.browserify_rails.source_map_environments << "development"
+
         # Work around sprockets+teaspoon mismatch:
         Rails.application.config.assets.precompile += %w(spec_helper.js)
 
