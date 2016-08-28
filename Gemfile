@@ -61,9 +61,16 @@ end
 gem 'slim-rails'
 gem 'slim'
 
+# Brakeman is an vulnerability scanner designed for Ruby on Rails applications.
+# It statically analyzes Rails application code to find
+# security issues at any stage of development.
 gem 'brakeman', :require => false
+
+# browserify-rails helps with Browserify integration within Rails
 gem 'browserify-rails'
 
+# react-rails eases React integration
+gem 'react-rails', '~> 1.0'
 
 
 group :development do
