@@ -13,6 +13,7 @@ module TODO
     # -- all .rb files in that directory are automatically loaded.
 
     config.browserify_rails.commandline_options = "-t [ babelify --presets [ es2015 react ] ]"
+    config.react.addons = true
 
 
     unless Rails.env.production?
