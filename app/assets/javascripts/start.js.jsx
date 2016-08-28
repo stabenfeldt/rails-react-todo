@@ -1,5 +1,5 @@
 $(()=>{
   ReactDOM.render(
-    <div>Hello world!</div>, document.getElementById('example')
+    <div>Hello martin!</div>, document.getElementById('example')
   );
 });
