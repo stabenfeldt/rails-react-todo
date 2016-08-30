@@ -10,3 +10,4 @@ Start by creating a user
 
 * Run Brakeman security scanner through spec/brakeman
 * Run Rubocop through spec/rubocop
+* Add ESlint
