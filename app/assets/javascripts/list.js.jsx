@@ -46,6 +46,21 @@ var List = React.createClass({
     e.dataTransfer.setData("text/html", e.currentTarget);
   },
 
+  updateOrder: function() {
+    $.ajax({
+      type: 'POST',
+      url: '/todos/update_order',
+      data: { 'todos': this.state.data },
+      dataType: 'json',
+    // success: function(data) {
+    //   this.setState({data: data});
+      // }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
+
   dragEnd: function(e) {
     this.dragged.style.display = "block";
     this.dragged.parentNode.removeChild(placeholder);
@@ -58,6 +73,9 @@ var List = React.createClass({
     data.splice(to, 0, data.splice(from, 1)[0]);
     this.setState({data: data});
     console.log("State is ", this.state);
+
+    // Save the new order of todos
+    this.updateOrder(this.state.data);
 
     if(this.nodePlacement == "after") to++
 
@@ -86,7 +104,6 @@ var List = React.createClass({
 
 
   render: function() {
-    console.log("Got list: ", this.state.data);
     return <ul id="drag-n-drop" onDragOver={this.dragOver}>
       {this.state.data.map(function(item, i) {
         return (
