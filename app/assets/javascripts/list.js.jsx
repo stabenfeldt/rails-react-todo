@@ -1,15 +1,40 @@
-// Using Sortable list from http://webcloud.se/sortable-list-component-react-js/
+// Based on react-sortable from http://webcloud.se/sortable-list-component-react-js/
 
 $(()=>{
 
 
 var colors = ["Red","Green","Blue","Yellow","Black","White","Orange"];
-  var placeholder = document.createElement("li");
-  placeholder.className = "placeholder";
+var todos;
+var placeholder = document.createElement("li");
+placeholder.className = "placeholder";
 
 var List = React.createClass({
   getInitialState: function() {
-    return {data: this.props.data};
+    return {data: []};
+  },
+
+  fetchTodos: function() {
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      success: function(data) {
+        this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
+
+  getDefaultProps: function() {
+    // var user_id = $('#user-info').data('id');
+    // url= "http://hse.orwapp.com/api/scores?user_id=" + user_id;
+    // return { url: url }
+    var url = '/todos.json';
+  },
+  componentDidMount: function() {
+    this.fetchTodos();
+    // setInterval(this.fetchTodos, 2000);
   },
 
   dragStart: function(e) {
@@ -61,6 +86,7 @@ var List = React.createClass({
 
 
   render: function() {
+    console.log("Got list: ", this.state.data);
     return <ul id="drag-n-drop" onDragOver={this.dragOver}>
       {this.state.data.map(function(item, i) {
         return (
@@ -71,7 +97,7 @@ var List = React.createClass({
             onDragEnd={this.dragEnd}
             onDragStart={this.dragStart}
           >
-            {item}
+            {item.text}
           </li>
         )
     }, this)}
@@ -81,7 +107,7 @@ var List = React.createClass({
 
 var mountpoint = document.getElementById('example');
 if ( mountpoint ) {
-  ReactDOM.render( <List data={colors} />, document.getElementById('example'));
+  ReactDOM.render( <List data={todos} />, document.getElementById('example'));
 }
 
 });
