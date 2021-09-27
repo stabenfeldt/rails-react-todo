@@ -47,7 +47,7 @@ group :development, :test do
   # Javascript test tools
   # Your choice of test library.
   # Also available, teaspoon-mocha / teaspoon-qunit
-  gem "teaspoon-jasmine"
+  gem "teaspoon-jasmine", ">= 2.3.4"
 
   # Teaspoon's front-end is written in CoffeeScript but it's not a dependency
   gem "coffee-script"
