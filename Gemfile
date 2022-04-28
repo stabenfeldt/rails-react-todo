@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+gem 'rails', '~> 5.2.7', '>= 5.2.7.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -12,7 +12,7 @@ gem 'puma', '~> 3.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
+gem 'coffee-rails', '~> 4.2', '>= 4.2.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -30,15 +30,15 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'devise'
+gem 'devise', '>= 4.4.2'
 
 gem 'bootstrap-sass', '~> 3.3.6'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails', '~> 3.5', '>= 3.5.1'
   gem 'railroady'
   gem 'rubocop'
   gem 'rails-controller-testing'
@@ -67,10 +67,10 @@ gem 'slim'
 gem 'brakeman', :require => false
 
 # browserify-rails helps with Browserify integration within Rails
-gem 'browserify-rails'
+gem 'browserify-rails', '>= 4.3.0'
 
 # react-rails eases React integration
-gem 'react-rails', '~> 1.0'
+gem 'react-rails', '~> 1.8', '>= 1.8.2'
 
 
 group :development do
